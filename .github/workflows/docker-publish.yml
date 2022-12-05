@@ -74,13 +74,9 @@ jobs:
           KEY: ${{ secrets.SSHKEY }}
           envs: IMAGE_NAME,REGISTRY,GITHUB_SHA,COMMAND
           script: |
-            # Stop running container
+            docker login -u ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }} -p ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }} registry.digitalocean.com
             docker stop $(echo $IMAGE_NAME)
-
-            # Remove old container
             docker rm $(echo $IMAGE_NAME)
-
-            # Run a new container from a new image
             docker run -d \
             --restart always \
             -p 8000:8000 \
