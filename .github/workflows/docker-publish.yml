@@ -54,6 +54,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           mkdir ../build
+          pwd
+          ls -lH .
           ls -lH ../
           ls -lH ../../
           cp -TR docker-compose.yaml ../build
