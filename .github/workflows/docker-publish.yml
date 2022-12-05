@@ -54,6 +54,7 @@ jobs:
       - name: Run a multi-line script
         run: |
           mkdir ../build
+          ls -lH
           cp -TR docker-compose.yaml ../build
           tar -cvf deploy.tar ../build/
       - name: Copy docker-compose.yaml
