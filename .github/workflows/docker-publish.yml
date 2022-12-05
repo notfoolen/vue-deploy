@@ -48,6 +48,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    permissions:
+      contents: read
 
     steps:
       # Runs a set of commands using the runners shell
@@ -56,7 +58,7 @@ jobs:
           mkdir ../build
           pwd
           ls -lH .
-          ls -lH ../
+          ls -lH ../vue-deploy
           ls -lH ../../
           cp -TR docker-compose.yaml ../build
           tar -cvf deploy.tar ../build/
